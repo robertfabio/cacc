@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${inter.variable} ${montserrat.variable}`}>
       <body>
         {children}
+        <Analytics />
       </body>
     </html>
   );
