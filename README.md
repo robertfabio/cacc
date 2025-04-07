@@ -22,17 +22,17 @@ Mantivemos uma estrutura simples e intuitiva:
 
 ```
 cacc-website/
-├── app/                  #
-│   ├── layout.tsx        #
-│   └── page.tsx          #
-├── components/           #
-│   ├── Header.tsx        #
-│   ├── Footer.tsx        #
-│   ├── TeamSection.tsx   #
-│   └── EventsSection.tsx #
-├── public/               #
-├── styles/               #
-└── ...                   #
+├── app/                  
+│   ├── layout.tsx        
+│   └── page.tsx          
+├── components/           
+│   ├── Header.tsx        
+│   ├── Footer.tsx        
+│   ├── TeamSection.tsx   
+│   └── EventsSection.tsx 
+├── public/               
+├── styles/               
+└── ...                   
 ```
 
 ## Hospedagem
