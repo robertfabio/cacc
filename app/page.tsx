@@ -288,7 +288,42 @@ const Home: FC = () => {
                   action="https://formspree.io/f/xgegdvnj"
                   method="POST"
                   className="space-y-4"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.target as HTMLFormElement;
+                    const formData = new FormData(form);
+                    
+                    fetch('https://formspree.io/f/xgegdvnj', {
+                      method: 'POST',
+                      body: formData,
+                      headers: {
+                        'Accept': 'application/json'
+                      }
+                    })
+                    .then(response => {
+                      if (response.ok) {
+                        alert('Mensagem enviada com sucesso!');
+                        form.reset();
+                      } else {
+                        response.json().then(data => {
+                          if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map((error: any) => error["message"]).join(", "));
+                          } else {
+                            alert("Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.");
+                          }
+                        });
+                      }
+                    })
+                    .catch(error => {
+                      alert("Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.");
+                      console.error('Error:', error);
+                    });
+                  }}
                 >
+                  <input type="hidden" name="_subject" value="Novo feedback do site CACC" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="text" name="_gotcha" style={{ display: 'none' }} aria-hidden="true" />
+                  
                   <div>
                     <label htmlFor="name" className="block mb-2 text-sm sm:text-base">Nome</label>
                     <input
