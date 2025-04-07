@@ -1,0 +1,12 @@
+Please add these placeholder images to this directory:
+
+1. profile-placeholder.png - A simple profile placeholder (400x400px recommended)
+2. event-placeholder.jpg - A simple event placeholder (800x450px recommended)
+
+Or you can use external URLs for testing by updating the image paths in:
+- components/TeamSection.tsx
+- components/EventsSection.tsx
+
+Example of external placeholder URLs:
+- https://placehold.co/400x400/003366/ffffff.png (for profile images)
+- https://placehold.co/800x450/003366/ffffff.png (for event images) 

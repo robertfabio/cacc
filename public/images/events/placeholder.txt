@@ -1,0 +1,7 @@
+Place event images here with the following naming convention:
+- semcomp.jpg
+- hackathon.jpg
+- workshop-ia.jpg
+- palestra.jpg
+
+Recommended dimensions: 800x450 pixels 

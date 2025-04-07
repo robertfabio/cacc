@@ -1,0 +1,7 @@
+Place team member images here with the following naming convention:
+- placeholder-1.png
+- placeholder-2.png
+- placeholder-3.png
+- placeholder-4.png
+
+Recommended dimensions: 400x400 pixels 
