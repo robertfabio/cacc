@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
-import { Analytics } from "@vercel/analytics/react";
+// Vercel Analytics será adicionado via script
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -27,9 +27,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${montserrat.variable}`}>
+      <head>
+        {/* Vercel Analytics */}
+        <script defer src="/_vercel/insights/script.js"></script>
+      </head>
       <body>
         {children}
-        <Analytics />
       </body>
     </html>
   );
