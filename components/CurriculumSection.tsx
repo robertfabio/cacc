@@ -25,8 +25,8 @@ const realSemesters: Array<{number: number; subjects: Subject[]}> = [
     subjects: [
       { name: "Fundamentos de Cálculo", code: "FC", credits: 4, workload: 60 },
       { name: "Geometria Analítica", code: "GA", credits: 4, workload: 60 },
-      { name: "Introdução a Lógica", code: "IL", credits: 4, workload: 60 },
-      { name: "Introdução a Computação", code: "IC", credits: 4, workload: 60 },
+      { name: "Introdução à Computação", code: "IC", credits: 4, workload: 60 },
+      { name: "Introdução à Lógica", code: "IL", credits: 4, workload: 60 },
       { name: "Computação e Sociedade", code: "CS", credits: 4, workload: 60 }
     ]
   },
@@ -35,8 +35,8 @@ const realSemesters: Array<{number: number; subjects: Subject[]}> = [
     subjects: [
       { name: "Cálculo Diferencial e Integral", code: "CDI", credits: 4, workload: 60, prerequisites: ["FC"] },
       { name: "Álgebra Linear", code: "AL", credits: 4, workload: 60 },
-      { name: "Circuitos Digitais", code: "CD", credits: 4, workload: 60 },
       { name: "Programação de Computadores", code: "PC", credits: 4, workload: 60 },
+      { name: "Circuitos Digitais", code: "CD", credits: 4, workload: 60 },
       { name: "Análise e Expressão Textual", code: "AET", credits: 4, workload: 60 }
     ]
   },
@@ -45,50 +45,53 @@ const realSemesters: Array<{number: number; subjects: Subject[]}> = [
     subjects: [
       { name: "Estatística", code: "EST", credits: 4, workload: 60 },
       { name: "Banco de Dados", code: "BD", credits: 4, workload: 60 },
-      { name: "Arquitetura e Organização de Computadores", code: "AOC", credits: 4, workload: 60, prerequisites: ["CD"] },
       { name: "Programação Orientada a Objetos", code: "POO", credits: 4, workload: 60, prerequisites: ["PC"] },
-      { name: "Filosofia da Ciência e Metodologia Científica", code: "FCMC", credits: 4, workload: 60 }
+      { name: "Arquitetura e Organização de Computadores", code: "AOC", credits: 4, workload: 60, prerequisites: ["CD"] },
+      { name: "Filosofia da Ciência e Método Científico", code: "FCMC", credits: 4, workload: 60 },
+      { name: "Matemática Discreta", code: "MD", credits: 4, workload: 60 }
     ]
   },
   {
     number: 4,
     subjects: [
-      { name: "Matemática Discreta", code: "MD", credits: 4, workload: 60 },
       { name: "Cálculo Numérico", code: "CN", credits: 4, workload: 60, prerequisites: ["CDI"] },
       { name: "Estrutura de Dados I", code: "ED1", credits: 4, workload: 60, prerequisites: ["POO"] },
+      { name: "Análise e Projeto Orientado a Objetos", code: "APOO", credits: 4, workload: 60, prerequisites: ["POO"] },
       { name: "Sistemas Operacionais", code: "SO", credits: 4, workload: 60, prerequisites: ["AOC"] },
-      { name: "Análise e Projeto Orientado a Objetos", code: "APOO", credits: 4, workload: 60, prerequisites: ["POO"] }
+      { name: "Linguagens Formais e Autômatos", code: "LFA", credits: 4, workload: 60, prerequisites: ["MD"] },
+      { name: "Optativa I", code: "OPT1", credits: 4, workload: 60 }
     ]
   },
   {
     number: 5,
     subjects: [
-      { name: "Linguagens Formais e Autômatos", code: "LFA", credits: 4, workload: 60, prerequisites: ["MD"] },
       { name: "Inteligência Artificial", code: "IA", credits: 4, workload: 60, prerequisites: ["ED1"] },
       { name: "Estrutura de Dados II", code: "ED2", credits: 4, workload: 60, prerequisites: ["ED1"] },
+      { name: "Engenharia de Software", code: "ES", credits: 4, workload: 60, prerequisites: ["APOO"] },
       { name: "Redes de Computadores", code: "RC", credits: 4, workload: 60, prerequisites: ["SO"] },
-      { name: "Optativa I", code: "OPT1", credits: 4, workload: 60 }
+      { name: "Teoria da Computação", code: "TC", credits: 4, workload: 60, prerequisites: ["LFA"] },
+      { name: "Optativa II", code: "OPT2", credits: 4, workload: 60 }
     ]
   },
   {
     number: 6,
     subjects: [
-      { name: "Engenharia de Software", code: "ES", credits: 4, workload: 60, prerequisites: ["APOO"] },
-      { name: "Teoria da Computação", code: "TC", credits: 4, workload: 60, prerequisites: ["LFA"] },
       { name: "Teoria dos Grafos", code: "TG", credits: 4, workload: 60, prerequisites: ["MD"] },
       { name: "Análise de Algoritmos", code: "AA", credits: 4, workload: 60, prerequisites: ["ED2"] },
-      { name: "Optativa II", code: "OPT2", credits: 4, workload: 60 }
+      { name: "Sistemas Distribuídos", code: "SD", credits: 4, workload: 60, prerequisites: ["RC"] },
+      { name: "Compiladores", code: "COMP", credits: 4, workload: 60, prerequisites: ["LFA"] },
+      { name: "Optativa III", code: "OPT3", credits: 4, workload: 60 },
+      { name: "Optativa IV", code: "OPT4", credits: 4, workload: 60 }
     ]
   },
   {
     number: 7,
     subjects: [
-      { name: "Sistemas Distribuídos", code: "SD", credits: 4, workload: 60, prerequisites: ["RC"] },
-      { name: "Compiladores", code: "COMP", credits: 4, workload: 60, prerequisites: ["LFA"] },
       { name: "Computação Gráfica", code: "CG", credits: 4, workload: 60, prerequisites: ["ED2"] },
       { name: "Sistemas Multimídia", code: "SM", credits: 4, workload: 60 },
-      { name: "Optativa III", code: "OPT3", credits: 4, workload: 60 },
-      { name: "Optativa IV", code: "OPT4", credits: 4, workload: 60 }
+      { name: "Optativa V", code: "OPT5", credits: 4, workload: 60 },
+      { name: "Optativa VI", code: "OPT6", credits: 4, workload: 60 },
+      { name: "Optativa VII", code: "OPT7", credits: 4, workload: 60 }
     ]
   },
   {
@@ -96,9 +99,6 @@ const realSemesters: Array<{number: number; subjects: Subject[]}> = [
     subjects: [
       { name: "Empreendedorismo", code: "EMP", credits: 4, workload: 60 },
       { name: "Segurança Computacional", code: "SC", credits: 4, workload: 60, prerequisites: ["RC"] },
-      { name: "Optativa V", code: "OPT5", credits: 4, workload: 60 },
-      { name: "Optativa VI", code: "OPT6", credits: 4, workload: 60 },
-      { name: "Optativa VII", code: "OPT7", credits: 4, workload: 60 },
       { name: "Optativa VIII", code: "OPT8", credits: 4, workload: 60 },
       { name: "Optativa IX", code: "OPT9", credits: 4, workload: 60 },
       { name: "Optativa X", code: "OPT10", credits: 4, workload: 60 }
@@ -107,21 +107,57 @@ const realSemesters: Array<{number: number; subjects: Subject[]}> = [
 ];
 
 const optionalSubjects: Subject[] = [
-  { name: "Processamento Digital de Imagens", code: "PDI", credits: 4, workload: 60 },
-  { name: "Tópicos Especiais em Computação I", code: "TEC1", credits: 4, workload: 60 },
-  { name: "Tópicos Especiais em Computação II", code: "TEC2", credits: 4, workload: 60 },
-  { name: "Tópicos Especiais em Computação III", code: "TEC3", credits: 4, workload: 60 },
-  { name: "Desenvolvimento Web", code: "DW", credits: 4, workload: 60 },
+  { name: "Aprendizagem de Máquina", code: "AM", credits: 4, workload: 60 },
+  { name: "Arquitetura de Software", code: "AS", credits: 4, workload: 60 },
+  { name: "Automação e Controle", code: "AC", credits: 4, workload: 60 },
+  { name: "Banco de Dados Não Convencionais", code: "BDNC", credits: 4, workload: 60 },
+  { name: "Cálculo I", code: "CAL1", credits: 4, workload: 60 },
+  { name: "Cálculo II", code: "CAL2", credits: 4, workload: 60 },
+  { name: "Computação Paralela", code: "CP", credits: 4, workload: 60 },
+  { name: "Criptografia", code: "CRIP", credits: 4, workload: 60 },
+  { name: "Desenvolvimento de Código Seguro", code: "DCS", credits: 4, workload: 60 },
   { name: "Desenvolvimento para Dispositivos Móveis", code: "DDM", credits: 4, workload: 60 },
-  { name: "Teste de Software", code: "TS", credits: 4, workload: 60 },
+  { name: "Eletricidade e Magnetismo", code: "EM", credits: 4, workload: 60 },
+  { name: "Engenharia de Requisitos", code: "ER", credits: 4, workload: 60 },
+  { name: "Equações Diferenciais", code: "ED", credits: 4, workload: 60 },
+  { name: "Fundamentos de Economia", code: "FE", credits: 4, workload: 60 },
+  { name: "Fundamentos de Filosofia", code: "FF", credits: 4, workload: 60 },
+  { name: "Fundamentos de Marketing", code: "FM", credits: 4, workload: 60 },
+  { name: "Gestão de Projetos", code: "GP", credits: 4, workload: 60 },
   { name: "Interação Humano-Computador", code: "IHC", credits: 4, workload: 60 },
+  { name: "Interconexão de Redes", code: "ICR", credits: 4, workload: 60 },
+  { name: "Introdução à Administração", code: "IAD", credits: 4, workload: 60 },
+  { name: "Introdução à Contabilidade", code: "ICT", credits: 4, workload: 60 },
+  { name: "Introdução à Função de Variáveis Complexas", code: "IFVC", credits: 4, workload: 60 },
+  { name: "Introdução à Microeletrônica", code: "IME", credits: 4, workload: 60 },
+  { name: "Introdução à Robótica", code: "IRO", credits: 4, workload: 60 },
+  { name: "Laboratório de Circuitos Digitais", code: "LCD", credits: 4, workload: 60 },
+  { name: "Laboratório de Matemática Aplicada", code: "LMA", credits: 4, workload: 60 },
+  { name: "Laboratório de Programação", code: "LP", credits: 4, workload: 60 },
+  { name: "Laboratório de Programação Orientada a Objetos", code: "LPOO", credits: 4, workload: 60 },
+  { name: "Libras (Língua Brasileira de Sinais)", code: "LIBRAS", credits: 4, workload: 60 },
+  { name: "Linguagem de Descrição de Hardware", code: "LDH", credits: 4, workload: 60 },
+  { name: "Mecânica Clássica", code: "MC", credits: 4, workload: 60 },
+  { name: "Microprocessadores e Microcontroladores", code: "MM", credits: 4, workload: 60 },
+  { name: "Ondas e Termodinâmica", code: "OT", credits: 4, workload: 60 },
+  { name: "Pesquisa Operacional", code: "PO", credits: 4, workload: 60 },
+  { name: "Prática de Ensino I (EAD)", code: "PE1", credits: 4, workload: 60 },
+  { name: "Prática de Ensino III (EAD)", code: "PE3", credits: 4, workload: 60 },
+  { name: "Práticas Técnicas em Estatística e Análise Experimental", code: "PTEAE", credits: 4, workload: 60 },
+  { name: "Processamento Digital de Imagens", code: "PDI", credits: 4, workload: 60 },
+  { name: "Programação de Jogos", code: "PJ", credits: 4, workload: 60 },
+  { name: "Programação de Jogos 3D", code: "PJ3D", credits: 4, workload: 60 },
+  { name: "Programação Distribuída", code: "PD", credits: 4, workload: 60 },
+  { name: "Programação Orientada a Aspectos", code: "POA", credits: 4, workload: 60 },
+  { name: "Programação Web", code: "PW", credits: 4, workload: 60 },
+  { name: "Qualidade de Software", code: "QS", credits: 4, workload: 60 },
+  { name: "Sistemas de Informação Geográfica", code: "SIG", credits: 4, workload: 60 },
+  { name: "Sistemas de Tempo Real", code: "STR", credits: 4, workload: 60 },
   { name: "Sistemas Embarcados", code: "SE", credits: 4, workload: 60 },
-  { name: "Computação em Nuvem", code: "CN", credits: 4, workload: 60 },
-  { name: "Programação Paralela", code: "PP", credits: 4, workload: 60 },
-  { name: "Aprendizado de Máquina", code: "AM", credits: 4, workload: 60 },
-  { name: "Mineração de Dados", code: "MD", credits: 4, workload: 60 },
-  { name: "Redes Neurais", code: "RN", credits: 4, workload: 60 },
-  { name: "Visão Computacional", code: "VC", credits: 4, workload: 60 }
+  { name: "Sociologia", code: "SOC", credits: 4, workload: 60 },
+  { name: "Software Básico", code: "SB", credits: 4, workload: 60 },
+  { name: "Teste de Software", code: "TS", credits: 4, workload: 60 },
+  { name: "Tópicos Especiais X", code: "TEX", credits: 4, workload: 60 }
 ];
 
 interface SubjectWithStatus extends Subject {
@@ -136,6 +172,45 @@ const CurriculumSection: FC = () => {
   const [planningMode, setPlanningMode] = useState<boolean>(false);
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
   const [completedSubjects, setCompletedSubjects] = useState<string[]>([]);
+  const [optionalFilter, setOptionalFilter] = useState<string>("todos");
+  const [notification, setNotification] = useState<{
+    show: boolean;
+    type: 'warning' | 'error' | 'success';
+    message: string;
+  }>({
+    show: false,
+    type: 'warning',
+    message: ''
+  });
+
+  // Categorias para filtrar as optativas
+  const optionalCategories = [
+    { id: "todos", name: "Todos" },
+    { id: "prog", name: "Programação" },
+    { id: "mat", name: "Matemática" },
+    { id: "eng", name: "Engenharia" },
+    { id: "ges", name: "Gestão" },
+    { id: "cie", name: "Ciências" },
+    { id: "hum", name: "Humanidades" }
+  ];
+
+  // Mapeamento de disciplinas optativas para categorias
+  const getOptionalCategory = (code: string): string => {
+    const programacao = ["LP", "LPOO", "DDM", "PW", "PJ", "PJ3D", "POA", "PD", "CP"];
+    const matematica = ["CAL1", "CAL2", "ED", "IFVC", "LMA", "PO", "PTEAE"];
+    const engenharia = ["AC", "AS", "DCS", "EM", "ER", "ICR", "IME", "IRO", "LCD", "LDH", "MM", "PDI", "SE", "STR"];
+    const gestao = ["FE", "FM", "GP", "IAD", "ICT", "PE1", "PE3", "QS", "TS"];
+    const ciencias = ["AM", "BDNC", "CRIP", "MC", "OT", "SIG", "SB"];
+    const humanidades = ["FF", "IHC", "LIBRAS", "SOC", "TEX"];
+
+    if (programacao.includes(code)) return "prog";
+    if (matematica.includes(code)) return "mat";
+    if (engenharia.includes(code)) return "eng";
+    if (gestao.includes(code)) return "ges";
+    if (ciencias.includes(code)) return "cie";
+    if (humanidades.includes(code)) return "hum";
+    return "outros";
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -165,10 +240,15 @@ const CurriculumSection: FC = () => {
       )
     : [];
 
+  // Filtragem das optativas por categoria
+  const filteredOptionalSubjects = optionalFilter === "todos" 
+    ? optionalSubjects 
+    : optionalSubjects.filter(subject => getOptionalCategory(subject.code) === optionalFilter);
+
   const displayedSubjects = searchTerm 
     ? filteredSubjects 
     : showOptional 
-      ? optionalSubjects 
+      ? filteredOptionalSubjects 
       : realSemesters.find(sem => sem.number === selectedSemester)?.subjects || [];
 
   const totalCredits = realSemesters.reduce((sum, semester) => {
@@ -189,6 +269,25 @@ const CurriculumSection: FC = () => {
     return 'available';
   };
 
+  // Função para mostrar notificação
+  const showNotification = (message: string, type: 'warning' | 'error' | 'success' = 'warning') => {
+    setNotification({
+      show: true,
+      type,
+      message
+    });
+    
+    // Auto-esconder após 4 segundos
+    setTimeout(() => {
+      setNotification(prev => ({ ...prev, show: false }));
+    }, 4000);
+  };
+
+  // Fechar notificação manualmente
+  const hideNotification = () => {
+    setNotification(prev => ({ ...prev, show: false }));
+  };
+
   const toggleSubjectSelection = (subject: Subject) => {
     if (!planningMode) return;
     
@@ -202,7 +301,7 @@ const CurriculumSection: FC = () => {
         realSemesters.flatMap(s => s.subjects).find(s => s.code === code)?.name
       ).filter(Boolean);
       
-      alert(`Você precisa completar ou selecionar os pré-requisitos primeiro: ${prereqNames?.join(', ')}`);
+      showNotification(`É necessário completar os pré-requisitos: ${prereqNames?.join(', ')}`, 'warning');
       return;
     }
 
@@ -215,7 +314,7 @@ const CurriculumSection: FC = () => {
       });
 
       if (isPrereqForOthers) {
-        alert('Esta disciplina é pré-requisito de outras disciplinas selecionadas ou concluídas. Remova-as primeiro.');
+        showNotification('Esta disciplina é pré-requisito de outras disciplinas selecionadas ou concluídas. Remova-as primeiro.', 'error');
         return;
       }
       setCompletedSubjects(prev => prev.filter(code => code !== subject.code));
@@ -228,12 +327,13 @@ const CurriculumSection: FC = () => {
       });
 
       if (isPrereqForSelected) {
-        alert('Esta disciplina é pré-requisito de outras disciplinas selecionadas. Remova-as primeiro.');
+        showNotification('Esta disciplina é pré-requisito de outras disciplinas selecionadas. Remova-as primeiro.', 'error');
         return;
       }
       setSelectedSubjects(prev => prev.filter(code => code !== subject.code));
     } else {
       setSelectedSubjects(prev => [...prev, subject.code]);
+      showNotification(`Disciplina ${subject.name} adicionada com sucesso!`, 'success');
     }
   };
 
@@ -312,7 +412,7 @@ const CurriculumSection: FC = () => {
             className="text-lg text-gray-600 mb-4"
           >
             Explore a estrutura curricular completa do curso de Ciência da Computação da UFERSA.
-            Total de créditos: {totalCredits} (~{Math.round(totalCredits * 15)} horas).
+            Total: 3200 horas (2600 horas obrigatórias + 600 horas optativas).
           </motion.p>
           
           <motion.div 
@@ -433,6 +533,102 @@ const CurriculumSection: FC = () => {
           </div>
         )}
 
+        {/* Optional Subjects Filters */}
+        {showOptional && !searchTerm && (
+          <div className="mb-8">
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex p-1 bg-white rounded-lg shadow-sm">
+                {optionalCategories.map(category => (
+                  <button
+                    key={category.id}
+                    onClick={() => setOptionalFilter(category.id)}
+                    className={`px-3 py-2 text-sm rounded-md transition-all ${
+                      optionalFilter === category.id
+                        ? 'bg-primary text-white' 
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="text-center text-sm text-gray-500 mb-4">
+              {optionalFilter !== "todos" 
+                ? `Mostrando ${filteredOptionalSubjects.length} disciplinas da categoria ${
+                    optionalCategories.find(c => c.id === optionalFilter)?.name
+                  }` 
+                : `Total: ${optionalSubjects.length} disciplinas optativas disponíveis`}
+            </div>
+          </div>
+        )}
+
+        {/* Notification System */}
+        {notification.show && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-20 inset-x-0 mx-auto z-50 py-3 px-4 rounded-lg shadow-lg w-[90%] sm:w-[400px] max-w-md flex items-center justify-between"
+            style={{
+              backgroundColor: notification.type === 'warning' 
+                ? 'rgb(254, 252, 232)' 
+                : notification.type === 'error' 
+                  ? 'rgb(254, 242, 242)' 
+                  : 'rgb(240, 253, 244)',
+              borderWidth: '1px',
+              borderColor: notification.type === 'warning' 
+                ? 'rgb(252, 211, 77)' 
+                : notification.type === 'error' 
+                  ? 'rgb(248, 113, 113)' 
+                  : 'rgb(74, 222, 128)',
+              color: notification.type === 'warning' 
+                ? 'rgb(146, 64, 14)' 
+                : notification.type === 'error' 
+                  ? 'rgb(185, 28, 28)' 
+                  : 'rgb(21, 128, 61)',
+              left: '50%',
+              transform: 'translateX(-50%)'
+            }}
+          >
+            <div className="flex items-center">
+              <span className={`mr-2 ${
+                notification.type === 'warning' 
+                  ? 'text-amber-500' 
+                  : notification.type === 'error'
+                    ? 'text-red-500'
+                    : 'text-green-500'
+              }`}>
+                {notification.type === 'warning' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                )}
+                {notification.type === 'error' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                )}
+                {notification.type === 'success' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                )}
+              </span>
+              <p className="text-sm">{notification.message}</p>
+            </div>
+            <button 
+              onClick={hideNotification}
+              className="ml-4 text-gray-400 hover:text-gray-600 focus:outline-none"
+              aria-label="Fechar notificação"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </motion.div>
+        )}
+
         {/* Subject info modal */}
         {selectedSubject && (
           <motion.div 
@@ -509,15 +705,47 @@ const CurriculumSection: FC = () => {
           </div>
         )}
 
-        {/* Subjects Grid */}
+        {/* Subjects Grid - Modificado para visualização compacta quando for optativas */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+          className={`grid gap-4 ${
+            showOptional && !searchTerm 
+              ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' 
+              : 'md:grid-cols-2 lg:grid-cols-3'
+          }`}
         >
           {displayedSubjects.map((subject) => {
             const status = getSubjectStatus(subject);
+            
+            // Layout compacto para optativas
+            if (showOptional && !searchTerm) {
+              return (
+                <motion.div
+                  key={subject.code}
+                  variants={itemVariants}
+                  className={`rounded-lg shadow-sm p-3 cursor-pointer hover:shadow-md transition-all border
+                    ${getStatusColor(status)}
+                    ${planningMode ? 'hover:scale-102' : ''}`}
+                  onClick={() => planningMode ? toggleSubjectSelection(subject) : setSelectedSubject(subject)}
+                  onDoubleClick={() => planningMode && markAsCompleted(subject)}
+                >
+                  <div className="flex justify-between items-start">
+                    <h4 className="text-sm font-semibold">{subject.name}</h4>
+                    <div className="flex items-center gap-1">
+                      {getStatusIcon(status)}
+                      <span className={`px-1.5 py-0.5 bg-opacity-10 rounded text-xs
+                        ${status === 'locked' ? 'bg-gray-100 text-gray-500' : 'bg-primary/10 text-primary'}`}>
+                        {subject.code}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            }
+            
+            // Layout normal para outras disciplinas
             return (
               <motion.div
                 key={subject.code}

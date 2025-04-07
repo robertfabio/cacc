@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRight, FaLightbulb, FaUsers, FaComments, FaChevronDown } from 'react-icons/fa';
 import {
@@ -30,6 +30,19 @@ const Home: FC = () => {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const [formStatus, setFormStatus] = useState<{
+    show: boolean;
+    type: 'success' | 'error';
+    message: string;
+  }>({
+    show: false,
+    type: 'success',
+    message: ''
+  });
+
+  const hideNotification = () => {
+    setFormStatus(prev => ({ ...prev, show: false }));
+  };
 
   return (
     <>
@@ -284,8 +297,29 @@ const Home: FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <h3 className="text-2xl font-bold mb-6">Feedback e Sugestões</h3>
+                {formStatus.show && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`mb-4 p-4 rounded-lg ${
+                      formStatus.type === 'success' 
+                        ? 'bg-green-500/20 border border-green-500/30' 
+                        : 'bg-red-500/20 border border-red-500/30'
+                    }`}
+                  >
+                    <div className="flex justify-between items-center">
+                      <p className="text-sm">{formStatus.message}</p>
+                      <button 
+                        onClick={hideNotification} 
+                        className="text-white/80 hover:text-white"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
                 <form
-                  action="https://formspree.io/f/xgegdvnj"
+                  action="https://formspree.io/f/xeoaprpd"
                   method="POST"
                   className="space-y-4"
                   onSubmit={(e) => {
@@ -293,7 +327,13 @@ const Home: FC = () => {
                     const form = e.target as HTMLFormElement;
                     const formData = new FormData(form);
                     
-                    fetch('https://formspree.io/f/xgegdvnj', {
+                    setFormStatus({
+                      show: true,
+                      type: 'success',
+                      message: 'Enviando mensagem...'
+                    });
+                    
+                    fetch('https://formspree.io/f/xeoaprpd', {
                       method: 'POST',
                       body: formData,
                       headers: {
@@ -302,21 +342,43 @@ const Home: FC = () => {
                     })
                     .then(response => {
                       if (response.ok) {
-                        alert('Mensagem enviada com sucesso!');
+                        setFormStatus({
+                          show: true,
+                          type: 'success',
+                          message: 'Mensagem enviada com sucesso! Obrigado pelo seu feedback.'
+                        });
                         form.reset();
+                        
+                        // Esconder a notificação após 5 segundos
+                        setTimeout(() => {
+                          setFormStatus(prev => ({ ...prev, show: false }));
+                        }, 5000);
                       } else {
                         response.json().then(data => {
                           if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map((error: any) => error["message"]).join(", "));
+                            const errorMessage = data.errors.map((error: any) => error.message).join(", ");
+                            setFormStatus({
+                              show: true,
+                              type: 'error',
+                              message: `Erro: ${errorMessage}`
+                            });
                           } else {
-                            alert("Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.");
+                            setFormStatus({
+                              show: true,
+                              type: 'error',
+                              message: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+                            });
                           }
                         });
                       }
                     })
                     .catch(error => {
-                      alert("Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.");
                       console.error('Error:', error);
+                      setFormStatus({
+                        show: true,
+                        type: 'error',
+                        message: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+                      });
                     });
                   }}
                 >
@@ -346,17 +408,24 @@ const Home: FC = () => {
                   </div>
                   <div>
                     <label htmlFor="type" className="block mb-2 text-sm sm:text-base">Tipo de Feedback</label>
-                    <select
-                      id="type"
-                      name="type"
-                      required
-                      className="w-full px-4 py-2 rounded bg-white/10 border border-white/20 focus:outline-none focus:border-white/40 text-sm sm:text-base"
-                    >
-                      <option value="suggestion">Sugestão</option>
-                      <option value="interest">Interesse em Participar</option>
-                      <option value="question">Dúvida</option>
-                      <option value="other">Outro</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="type"
+                        name="type"
+                        required
+                        className="w-full px-4 py-2 rounded appearance-none bg-white/10 border border-white/20 focus:outline-none focus:border-white/40 text-sm sm:text-base text-white pr-10"
+                      >
+                        <option value="suggestion" className="bg-primary text-white">Sugestão</option>
+                        <option value="interest" className="bg-primary text-white">Interesse em Participar</option>
+                        <option value="question" className="bg-primary text-white">Dúvida</option>
+                        <option value="other" className="bg-primary text-white">Outro</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <label htmlFor="message" className="block mb-2 text-sm sm:text-base">Mensagem</label>
