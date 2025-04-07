@@ -16,23 +16,23 @@ Este site nasceu da vontade de criar um espaço digital onde todos possam conhec
 
 
 
-## 🗂️ Como organizamos as coisas
+## Organização
 
 Mantivemos uma estrutura simples e intuitiva:
 
 ```
 cacc-website/
-├── app/                  # Onde a mágica do Next.js acontece
-│   ├── layout.tsx        # O esqueleto de todas as páginas
-│   └── page.tsx          # Nossa página inicial
-├── components/           # Os blocos que constroem o site
-│   ├── Header.tsx        # Cabeçalho navegável
-│   ├── Footer.tsx        # Rodapé com informações importantes
-│   ├── TeamSection.tsx   # Onde apresentamos nossa equipe
-│   └── EventsSection.tsx # Divulgação dos nossos eventos
-├── public/               # Imagens e arquivos estáticos
-├── styles/               # Nossa roupagem visual
-└── ...                   # Outras configurações
+├── app/                  #
+│   ├── layout.tsx        #
+│   └── page.tsx          #
+├── components/           #
+│   ├── Header.tsx        #
+│   ├── Footer.tsx        #
+│   ├── TeamSection.tsx   #
+│   └── EventsSection.tsx #
+├── public/               #
+├── styles/               #
+└── ...                   #
 ```
 
 ## Hospedagem
