@@ -3,11 +3,17 @@
 import { FC } from 'react';
 import { Instagram, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Footer: FC = () => {
   return (
-    <footer className="py-12 bg-primary text-white">
-      <div className="container">
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="bg-primary text-white py-8"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Contact Info */}
           <div>
@@ -65,7 +71,7 @@ const Footer: FC = () => {
           <p>&copy; {new Date().getFullYear()} CACC UFERSA. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

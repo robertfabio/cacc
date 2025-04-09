@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from 'react';
+import { FC, useState, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRight, FaLightbulb, FaUsers, FaComments, FaChevronDown } from 'react-icons/fa';
 import {
@@ -24,7 +24,7 @@ import AboutSection from '../components/AboutSection';
 import StudentResourcesSection from '../components/StudentResourcesSection';
 import NewsAndEventsSection from '../components/NewsAndEventsSection';
 
-import CurriculumSection from '../components/CurriculumSection';
+const CurriculumSection = lazy(() => import('../components/CurriculumSection'));
 
 const Home: FC = () => {
   const { scrollYProgress } = useScroll();
@@ -197,7 +197,9 @@ const Home: FC = () => {
         <NewsAndEventsSection />
 
         {/* Curriculum Section */}
-        <CurriculumSection />
+        <Suspense fallback={<div>Loading...</div>}>
+          <CurriculumSection />
+        </Suspense>
 
         {/* Student Resources Section */}
         <StudentResourcesSection />

@@ -148,4 +148,25 @@ input, select, textarea {
   .dark\:invert {
     @apply filter invert;
   }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .text-center {
+    text-align: left !important;
+  }
+  .flex {
+    flex-direction: column !important;
+  }
+  .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
 } 

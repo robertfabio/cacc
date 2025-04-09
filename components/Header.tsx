@@ -18,7 +18,13 @@ const Header: FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary border-b border-white/5">
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-primary border-b border-white/5"
+      aria-label="Main Navigation"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.a
@@ -30,7 +36,7 @@ const Header: FC = () => {
             CACC
           </motion.a>
 
-          <nav className="hidden md:flex space-x-2">
+          <nav className="hidden md:flex space-x-2" aria-label="Primary Navigation">
             {navItems.map((item) => (
               <motion.a
                 key={item.href}
@@ -133,7 +139,7 @@ const Header: FC = () => {
           </AnimatePresence>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
